@@ -112,6 +112,7 @@ public class Panneau extends JPanel {
 
 	public void setColor(Color color) {
 		spline.color = color;
+		splineColor= color;
 	}
 
 
