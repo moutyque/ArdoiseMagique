@@ -4,20 +4,18 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import org.ardoise.views.panneaus.Panneau;
+import org.ardoise.views.panneaux.Panneau;
 
 public class MouseDrawing implements MouseListener, MouseMotionListener{
 
 	private Panneau pan;
-	private boolean isClicked = false;
 	
 	public MouseDrawing(Panneau pan) {
 		this.pan = pan;
 	}
-	
+//MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -53,7 +51,6 @@ public class MouseDrawing implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
