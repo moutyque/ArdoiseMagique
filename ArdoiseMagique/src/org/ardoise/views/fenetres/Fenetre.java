@@ -68,10 +68,7 @@ public class Fenetre extends JFrame{
 		container.add(toolBar,BorderLayout.NORTH);
 		
 		this.setContentPane(container);
-		
-		
-		
-		
+				
 		
 		JMenuBar bar = new JMenuBar();
 		bar.add(new FileMenue(this));
