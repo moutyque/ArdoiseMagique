@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Stroke;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,20 +39,23 @@ public class Panneau extends JPanel {
 	public void paintComponent(Graphics g){
 		  Graphics2D g2 = (Graphics2D) g;
 		this.setBackground(Color.RED);
+		Stroke stroke = new BasicStroke();
 		if(isRoundPointer) {
+			stroke = new BasicStroke(size, BasicStroke.CAP_ROUND , BasicStroke.JOIN_ROUND);
+
+		}
+		else{
+			stroke = new BasicStroke(size, BasicStroke.CAP_SQUARE , BasicStroke.JOIN_ROUND);
+		}
+		
+		g2.setStroke(stroke);
+		
 			for(List<Point> pointsSerie : pointsToDraw) {
 				drawSpline(g2, pointsSerie);
 			}
 			drawSpline(g2, spline);
-		}
-		else {
-			for(List<Point> pointsSerie : pointsToDraw) {
-				Point previousPoint = pointsSerie.get(0);
-				for(Point point : pointsSerie) {
-					g.fillRect(toInt(previousPoint.getX()), toInt(previousPoint.getY()),toInt(point.getX()-previousPoint.getX()), toInt(point.getY()-previousPoint.getY()));	
-				}
-			}
-		}
+		
+
 
 	}
 
@@ -59,7 +63,7 @@ public class Panneau extends JPanel {
 		if(!pointsSerie.isEmpty()) {
 			Point previousPoint = pointsSerie.get(0);
 			for(Point point : pointsSerie) {
-				g2.setStroke(new BasicStroke(10));
+				
 				g2.draw(new Line2D.Float(previousPoint, point));
 				previousPoint = point;
 			}
