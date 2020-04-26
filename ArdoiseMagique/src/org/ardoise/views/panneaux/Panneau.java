@@ -31,7 +31,6 @@ public class Panneau extends JPanel {
 
 	public Panneau() {
 		super();
-		//pointsToDraw.add(spline);
 		this.setBackground(Color.WHITE);
 		this.addMouseMotionListener(new MouseDrawing(this));
 		this.addMouseListener(new MouseDrawing(this));
